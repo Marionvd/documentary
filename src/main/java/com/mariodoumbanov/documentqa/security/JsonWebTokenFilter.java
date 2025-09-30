@@ -1,4 +1,4 @@
-package com.mariodoumbanov.documentqa;
+package com.mariodoumbanov.documentqa.security;
 
 import com.mariodoumbanov.documentqa.entity.User;
 import com.mariodoumbanov.documentqa.service.JsonWebTokenService;
@@ -58,7 +58,6 @@ public class JsonWebTokenFilter extends OncePerRequestFilter {
                     user.getAuthorities()
             );
 
-            authentication.setAuthenticated(true);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         } catch(Exception e) {
             filterChain.doFilter(request, response);

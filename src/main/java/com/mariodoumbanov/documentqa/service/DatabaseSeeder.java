@@ -1,5 +1,6 @@
 package com.mariodoumbanov.documentqa.service;
 
+import com.mariodoumbanov.documentqa.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -11,9 +12,11 @@ import java.util.Map;
 @Component
 public class DatabaseSeeder {
     private final AuthorityService authorityService;
+    private final UserService userService;
     @Autowired
-    public DatabaseSeeder(AuthorityService authorityService) {
+    public DatabaseSeeder(AuthorityService authorityService, UserService userService) {
         this.authorityService=authorityService;
+        this.userService=userService;
     }
 
     @Bean
@@ -26,6 +29,8 @@ public class DatabaseSeeder {
             for (Map<String, String> authority_data : authorities_data) {
                 authorityService.createAuthority(authority_data.get("name"), authority_data.get("description"));
             }
+
+            userService.register("mario@gmail.com", "Password123@");
         };
     }
 }

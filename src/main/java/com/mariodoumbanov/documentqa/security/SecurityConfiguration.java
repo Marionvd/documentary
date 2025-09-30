@@ -1,8 +1,6 @@
 package com.mariodoumbanov.documentqa.security;
 
-import com.mariodoumbanov.documentqa.JsonWebTokenFilter;
 import com.mariodoumbanov.documentqa.service.UserDetailsService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +30,8 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/api/auth/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/users/**", "/api/files/**").authenticated()
+                        .anyRequest().denyAll()
                 )
                 .userDetailsService(userDetailsService)
                 .addFilterBefore(jsonWebTokenFilter, UsernamePasswordAuthenticationFilter.class)
@@ -41,6 +40,6 @@ public class SecurityConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
+        return new BCryptPasswordEncoder();
     }
 }

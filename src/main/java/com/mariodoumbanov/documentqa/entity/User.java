@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,10 +38,18 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name="authority_id")
     )
     private Set<Authority> authorities = new HashSet<>();
+    @Column(nullable = false)
     private Date createdAt;
 
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    private Set<Doc> files = new HashSet<>();
+
     public User(String email, String password) {
-        this(null, email, password, new HashSet<>(),new Date(System.currentTimeMillis()));
+        this.email = email;
+        this.password = password;
+        this.createdAt = new Date(System.currentTimeMillis());
+        this.authorities = new HashSet<>();
+        this.files = new HashSet<>();
     }
 
     @Override

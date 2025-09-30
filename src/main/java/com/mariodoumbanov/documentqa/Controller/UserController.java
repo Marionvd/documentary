@@ -1,4 +1,4 @@
-package com.mariodoumbanov.documentqa;
+package com.mariodoumbanov.documentqa.Controller;
 
 import com.mariodoumbanov.documentqa.DTO.PagedResponse;
 import com.mariodoumbanov.documentqa.DTO.SafeUserDTO;
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatedUser(@PathVariable Integer id, @AuthenticationPrincipal User user, @RequestBody UserUpdateDTO userUpdateDTO) {
+    public ResponseEntity<?> updateUser(@PathVariable Integer id, @AuthenticationPrincipal User user, @RequestBody UserUpdateDTO userUpdateDTO) {
         if(!Objects.equals(user.getId(), id)) {
             return ResponseEntity.badRequest().body("Invalid operation. Can only update own account.");
         }
