@@ -9,7 +9,7 @@ import java.util.Set;
 public record SafeUserDTO(
         String email,
         Set<Authority> authorities,
-        Date createdAt,
+        Date createdAt
 ) {
     public static SafeUserDTO of(User user) {
         return new SafeUserDTO(
