@@ -42,7 +42,7 @@ public class User implements UserDetails {
     private Date createdAt;
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private Set<Doc> files = new HashSet<>();
+    private Set<Document> files = new HashSet<>();
 
     public User(String email, String password) {
         this.email = email;

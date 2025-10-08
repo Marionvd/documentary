@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doc {
+public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;

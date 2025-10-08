@@ -13,14 +13,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIERld
 Content-Type: application/json
 
 {
-  "email": "m@gmail.com",
+  "email": "maumai@gmail.com",
   "password": "123456@aA",
   "confirmPassword": "Password123@"
 }
 
 ### Send file request
 POST http://localhost:8080/api/files
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJpZCI6MSwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJpYXQiOjE3NTkyMzM5MjksImV4cCI6MTc1OTMyMDMyOSwiaXNzIjoiRG9jdW1lbnRhcnkifQ.aUlQ__JF2Zbue3zMto_Jk0-YjGOEGUlVToCoCWW_6U8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJpZCI6MSwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJpYXQiOjE3NTk5NDMzMTgsImV4cCI6MTc2MDAyOTcxOCwiaXNzIjoiRG9jdW1lbnRhcnkifQ.Fd0zdS5Jfi5AKDifpC8dekr3vMfbOqHMZaV9GoiLOkA
 Content-Type: multipart/form-data; boundary=WebKitFormBoundary7MA4YWxkTrZu0gW
 
 --WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -29,3 +29,11 @@ Content-Type: text/plain
 
 < ./my_fil.txt
 --WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### delete file request
+DELETE http://localhost:8080/api/files/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJpZCI6MSwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJpYXQiOjE3NTk1ODEyMjMsImV4cCI6MTc1OTY2NzYyMywiaXNzIjoiRG9jdW1lbnRhcnkifQ.rity3vcxgjGYYKEntwqCYSa6yCu41DEb2iGM2wUgCAI
+
+### get file request
+GET http://localhost:8080/api/files/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJVc2VyIERldGFpbHMiLCJpZCI6MSwiZW1haWwiOiJtYXJpb0BnbWFpbC5jb20iLCJpYXQiOjE3NTk1ODEyMjMsImV4cCI6MTc1OTY2NzYyMywiaXNzIjoiRG9jdW1lbnRhcnkifQ.rity3vcxgjGYYKEntwqCYSa6yCu41DEb2iGM2wUgCAI
